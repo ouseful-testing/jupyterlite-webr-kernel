@@ -23,7 +23,7 @@ export class WebRKernel extends BaseKernel {
       stdout: (line: string) => console.log(line),
       stderr: (line: string) => console.error(line),
       prompt: (prompt: string) => this.inputRequest({ prompt, password: false }),},{
-      baseUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/webr/",
+      baseUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/webr-dist/",
       repoUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/repo/",
       REnv: {
         R_HOME: '/usr/lib/R',
@@ -86,8 +86,8 @@ export class WebRKernel extends BaseKernel {
       banner: `webR v${webRVersion} - R v${baseRVersion}`,
       help_links: [
         {
-          text: 'WebAssembly R Kernel',
-          url: 'https://github.com/r-wasm/jupyterlite-webr-kernel',
+          text: 'WebAssembly R Kernel - ouseful local testing',
+          url: 'https://github.com/ouseful-testing/jupyterlite-webr-kernel',
         }
       ],
     };
