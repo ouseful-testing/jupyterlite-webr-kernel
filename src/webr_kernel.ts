@@ -22,13 +22,13 @@ export class WebRKernel extends BaseKernel {
     this.#webRConsole = new Console({
       stdout: (line: string) => console.log(line),
       stderr: (line: string) => console.error(line),
-      prompt: (prompt: string) => this.inputRequest({ prompt, password: false }),
+      prompt: (prompt: string) => this.inputRequest({ prompt, password: false }),},{
       baseUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/webr/",
       repoUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/repo/",
       REnv: {
         R_HOME: '/usr/lib/R',
         FONTCONFIG_PATH: '/etc/fonts',
-        R_ENABLE_JIT: '0',
+        R_ENABLE_JIT: '0',}
     });
     this.webR = this.#webRConsole.webR;
     this.init = this.setupEnvironment();
