@@ -23,8 +23,10 @@ export class WebRKernel extends BaseKernel {
       stdout: (line: string) => console.log(line),
       stderr: (line: string) => console.error(line),
       prompt: (prompt: string) => this.inputRequest({ prompt, password: false }),},{
-      baseUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/webr-dist/",
-      repoUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/repo/",
+      //baseUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/webr-dist/",
+      //repoUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/repo/",
+      baseUrl: "http://localhost:8888/webr-dist/",
+      repoUrl: "./repo/",
       REnv: {
         R_HOME: '/usr/lib/R',
         FONTCONFIG_PATH: '/etc/fonts',
