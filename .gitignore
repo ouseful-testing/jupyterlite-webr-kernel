@@ -1,7 +1,7 @@
 .DS_Store
 _output
 *.bundle.*
-lib/
+
 node_modules/
 *.egg-info/
 .ipynb_checkpoints
@@ -28,7 +28,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
