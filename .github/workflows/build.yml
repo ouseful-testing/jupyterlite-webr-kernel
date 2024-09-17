@@ -29,7 +29,6 @@ jobs:
           jupyter lite build
 
       - name: Upload _output/ artifact
-        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_output/"
