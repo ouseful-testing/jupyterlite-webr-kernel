@@ -26,7 +26,9 @@ jobs:
       - name: Build jupyterlite
         run: |
           python -m pip install -e ".[dev]"
-          jupyter lite build
+          jupyter lite build --contents content
+          cp -r ./packages_wasmbuilt/ _output//repo/
+          cp -r ./webr-dist/ _output//webr-dist/
 
       - name: Upload _output/ artifact
         uses: actions/upload-pages-artifact@v3
