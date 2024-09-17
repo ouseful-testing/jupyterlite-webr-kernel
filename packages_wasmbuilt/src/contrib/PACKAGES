@@ -13,14 +13,31 @@ MD5sum: e578ef6b12517cbddb882187022fda39
 NeedsCompilation: no
 
 Package: MASS
-Version: 7.3-61
+Version: 7.3-58.3
 Priority: recommended
-Depends: R (>= 4.4.0), grDevices, graphics, stats, utils
+Depends: R (>= 3.3.0), grDevices, graphics, stats, utils
 Imports: methods
 Suggests: lattice, nlme, nnet, survival
 License: GPL-2 | GPL-3
-MD5sum: 70372583b0c1001849d56f940f1bcda0
+MD5sum: 11b9633f53569952b523b4fb6fa16e0b
 NeedsCompilation: yes
+
+Package: Rcpp
+Version: 1.0.13
+Imports: methods, utils
+Suggests: tinytest, inline, rbenchmark, pkgKitten (>= 0.1.2)
+License: GPL (>= 2)
+MD5sum: e952f42180be610ea27858f1fe4a8846
+NeedsCompilation: yes
+
+Package: Rdpack
+Version: 2.6.1
+Depends: R (>= 2.15.0), methods
+Imports: tools, utils, rbibutils (>= 1.3)
+Suggests: grDevices, testthat, rstudioapi, rprojroot, gbRd
+License: GPL (>= 2)
+MD5sum: 756227a3bfadf82d7b685af6a7ea9d17
+NeedsCompilation: no
 
 Package: TTR
 Version: 0.24.4
@@ -39,6 +56,27 @@ License: LGPL-2
 MD5sum: f1f9bb9861a032ba66168ac92b83917b
 NeedsCompilation: yes
 
+Package: collapse
+Version: 2.0.16
+Depends: R (>= 3.4.0)
+Imports: Rcpp (>= 1.0.1)
+LinkingTo: Rcpp
+Suggests: fastverse, data.table, magrittr, kit, xts, zoo, plm, fixest,
+        vars, RcppArmadillo, RcppEigen, tibble, dplyr, ggplot2, scales,
+        microbenchmark, testthat, covr, knitr, rmarkdown, withr
+License: GPL (>= 2) | file LICENSE
+MD5sum: b8ca947e410471015554a0ced067754f
+NeedsCompilation: yes
+
+Package: curl
+Version: 5.2.2
+Depends: R (>= 3.0.0)
+Suggests: spelling, testthat (>= 1.0.0), knitr, jsonlite, later,
+        rmarkdown, httpuv (>= 1.4.4), webutils
+License: MIT + file LICENSE
+MD5sum: 15225aa01615cf62398300f5a825e556
+NeedsCompilation: yes
+
 Package: digest
 Version: 0.6.37
 Depends: R (>= 3.3.0)
@@ -53,7 +91,7 @@ Version: 1.14
 Depends: R (>= 3.2.3)
 Suggests: rstudioapi, shiny, testit, rmarkdown, knitr
 License: GPL
-MD5sum: cd2feda19144bb18c8eb271967f44ec5
+MD5sum: ade8271630c0131e85d05d03b315bdce
 NeedsCompilation: no
 
 Package: generics
@@ -62,7 +100,7 @@ Depends: R (>= 3.2)
 Imports: methods
 Suggests: covr, pkgload, testthat (>= 3.0.0), tibble, withr
 License: MIT + file LICENSE
-MD5sum: 880f51418894ed41d7d1a729c05a4256
+MD5sum: 5fd771985fa0af4ce354b3e7e5ab3729
 NeedsCompilation: no
 
 Package: jsonlite
@@ -160,12 +198,11 @@ MD5sum: 8a9a31ae82d00c84cb63d3eaed5a3199
 NeedsCompilation: no
 
 Package: tseries
-Version: 0.10-57
-Depends: R (>= 3.4.0)
-Imports: graphics, stats, utils, quadprog, zoo, quantmod (>= 0.4-9),
-        jsonlite
-License: GPL-2 | GPL-3
-MD5sum: 310e3fccf885d97de89176152d3df7e0
+Version: 0.10-53
+Depends: R (>= 2.10.0)
+Imports: graphics, stats, utils, quadprog, zoo, quantmod (>= 0.4-9)
+License: GPL-2
+MD5sum: 7ae0367e012292e03cb1e118a8e73384
 NeedsCompilation: yes
 
 Package: urca
@@ -183,7 +220,7 @@ Imports: methods
 LinkingTo: zoo
 Suggests: timeSeries, timeDate, tseries, chron, tinytest
 License: GPL (>= 2)
-MD5sum: 7532058032fb0dc88cfcf942bd497842
+MD5sum: 0857c74591b0ba3f169f677d3259bc02
 NeedsCompilation: yes
 
 Package: zoo
