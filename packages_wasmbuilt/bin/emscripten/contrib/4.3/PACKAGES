@@ -1,15 +1,85 @@
+Package: Formula
+Version: 1.2-5
+Depends: R (>= 2.0.0), stats
+License: GPL-2 | GPL-3
+MD5sum: 90eb3da624f7b894494dca8a2c1faa24
+
 Package: M348
 Version: 1.3.4
 Depends: R (>= 3.5.0)
 License: GPL-3
-MD5sum: ef343ef31783c344a3e1d5a09ccab448
+MD5sum: e715ed99e35b766a7640b5229af69ef7
+
+Package: TTR
+Version: 0.24.4
+Imports: xts (>= 0.10-0), zoo, curl
+LinkingTo: xts
+Suggests: RUnit
+Enhances: quantmod
+License: GPL (>= 2)
+MD5sum: 9b717270ebcc31bb77a7ff9c81db5dd6
+
+Package: bdsmatrix
+Version: 1.3-7
+Depends: methods, R (>= 2.0.0)
+License: LGPL-2
+MD5sum: d9a0c3f51ed0877053d94cc6253b694b
+
+Package: digest
+Version: 0.6.37
+Depends: R (>= 3.3.0)
+Imports: utils
+Suggests: tinytest, simplermarkdown
+License: GPL (>= 2)
+MD5sum: fc06dbbd418cd376f0ca2a4b8167f5b6
 
 Package: formatR
 Version: 1.14
 Depends: R (>= 3.2.3)
 Suggests: rstudioapi, shiny, testit, rmarkdown, knitr
 License: GPL
-MD5sum: aedd8264080cd6e12de7716b8071524c
+MD5sum: 3161c095b37de947169876a36c618c08
+
+Package: generics
+Version: 0.1.3
+Depends: R (>= 3.2)
+Imports: methods
+Suggests: covr, pkgload, testthat (>= 3.0.0), tibble, withr
+License: MIT + file LICENSE
+MD5sum: ea405221c2636eff57ea7be5055f5707
+
+Package: jsonlite
+Version: 1.8.8
+Depends: methods
+Suggests: httr, vctrs, testthat, knitr, rmarkdown, R.rsp, sf
+License: MIT + file LICENSE
+MD5sum: 939929ddecb61c3e66044f8f25532599
+
+Package: lattice
+Version: 0.22-6
+Priority: recommended
+Depends: R (>= 4.0.0)
+Imports: grid, grDevices, graphics, stats, utils
+Suggests: KernSmooth, MASS, latticeExtra, colorspace
+Enhances: chron, zoo
+License: GPL (>= 2)
+MD5sum: 776dbce0285dcecb6625b2e180372d58
+
+Package: lmtest
+Version: 0.9-40
+Depends: R (>= 3.0.0), stats, zoo
+Imports: graphics
+Suggests: car, strucchange, sandwich, dynlm, stats4, survival, AER
+License: GPL-2 | GPL-3
+MD5sum: 67cc8e0c39545100778ad4deab2e05e6
+
+Package: miscTools
+Version: 0.6-28
+Depends: R (>= 2.14.0)
+Imports: digest
+Suggests: Ecdat (>= 0.1-5)
+License: GPL (>= 2)
+MD5sum: bdfee4eb3ff95a69c73cb2d90ea95be6
 
 Package: nlme
 Version: 3.1-166
@@ -18,7 +88,7 @@ Depends: R (>= 3.6.0)
 Imports: graphics, stats, utils, lattice
 Suggests: MASS, SASmixed
 License: GPL (>= 2)
-MD5sum: 35e04189076bea94a989ed1f422a2d44
+MD5sum: a5189f98493c537a9a9301dec99d3a42
 
 Package: plm
 Version: 2.6-4
@@ -28,11 +98,55 @@ Imports: MASS, bdsmatrix, collapse (>= 1.8.9), zoo, nlme, sandwich,
 Suggests: AER, car, statmod, urca, pder, texreg, knitr, rmarkdown,
         fixest, lfe
 License: GPL (>= 2)
-MD5sum: cc448829d204aa541e92ac0529846dc3
+MD5sum: f6da8154091304116ab03e4ec2fdce1e
+
+Package: quantmod
+Version: 0.4.26
+Depends: R (>= 3.2.0), xts(>= 0.9-0), zoo, TTR(>= 0.2), methods
+Imports: curl, jsonlite(>= 1.1)
+Suggests: DBI,RMySQL,RSQLite,timeSeries,xml2,downloader
+License: GPL-3
+MD5sum: 55283281aac8835b9fc69f428c076790
+
+Package: rbibutils
+Version: 2.2.16
+Depends: R (>= 2.10)
+Imports: utils, tools
+Suggests: testthat
+License: GPL-2
+MD5sum: b803ab579558e200f92708698d7a537c
+
+Package: sandwich
+Version: 3.1-1
+Depends: R (>= 3.0.0)
+Imports: stats, utils, zoo
+Suggests: AER, car, geepack, lattice, lme4, lmtest, MASS, multiwayvcov,
+        parallel, pcse, plm, pscl, scatterplot3d, stats4, strucchange,
+        survival
+License: GPL-2 | GPL-3
+MD5sum: 2f79501479513ee29a3963632a848d3b
 
 Package: urca
 Version: 1.3-4
 Depends: R (>= 2.0.0), methods
 Imports: nlme, graphics, stats
 License: GPL (>= 2)
-MD5sum: 78d0dbbcf69efd51b5be8b3977c7a562
+MD5sum: d9d2430d998deaea448136150f1d254c
+
+Package: xts
+Version: 0.14.0
+Depends: R (>= 3.6.0), zoo (>= 1.7-12)
+Imports: methods
+LinkingTo: zoo
+Suggests: timeSeries, timeDate, tseries, chron, tinytest
+License: GPL (>= 2)
+MD5sum: d948ee6c76197a03c0c283dcc585281c
+
+Package: zoo
+Version: 1.8-12
+Depends: R (>= 3.1.0), stats
+Imports: utils, graphics, grDevices, lattice (>= 0.20-27)
+Suggests: AER, coda, chron, ggplot2 (>= 3.0.0), mondate, scales,
+        stinepack, strucchange, timeDate, timeSeries, tis, tseries, xts
+License: GPL-2 | GPL-3
+MD5sum: 0ee8c1ff3fd86344e1aed3a3ec54a083
