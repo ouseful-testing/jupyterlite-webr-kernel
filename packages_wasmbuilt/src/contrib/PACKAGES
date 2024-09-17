@@ -27,7 +27,7 @@ Version: 1.0.13
 Imports: methods, utils
 Suggests: tinytest, inline, rbenchmark, pkgKitten (>= 0.1.2)
 License: GPL (>= 2)
-MD5sum: e952f42180be610ea27858f1fe4a8846
+MD5sum: f265d1fb8506bee87cf17f3061d4db62
 NeedsCompilation: yes
 
 Package: Rdpack
@@ -36,7 +36,7 @@ Depends: R (>= 2.15.0), methods
 Imports: tools, utils, rbibutils (>= 1.3)
 Suggests: grDevices, testthat, rstudioapi, rprojroot, gbRd
 License: GPL (>= 2)
-MD5sum: 756227a3bfadf82d7b685af6a7ea9d17
+MD5sum: a25ef9ca04a54bc56d64281b3bed55ca
 NeedsCompilation: no
 
 Package: TTR
@@ -69,12 +69,12 @@ MD5sum: b8ca947e410471015554a0ced067754f
 NeedsCompilation: yes
 
 Package: curl
-Version: 5.2.2
+Version: 5.0.1
 Depends: R (>= 3.0.0)
-Suggests: spelling, testthat (>= 1.0.0), knitr, jsonlite, later,
-        rmarkdown, httpuv (>= 1.4.4), webutils
+Suggests: spelling, testthat (>= 1.0.0), knitr, jsonlite, rmarkdown,
+        magrittr, httpuv (>= 1.4.4), webutils
 License: MIT + file LICENSE
-MD5sum: 15225aa01615cf62398300f5a825e556
+MD5sum: b0f6c44e6fdac858fe98d3a3fcab5130
 NeedsCompilation: yes
 
 Package: digest
@@ -91,7 +91,7 @@ Version: 1.14
 Depends: R (>= 3.2.3)
 Suggests: rstudioapi, shiny, testit, rmarkdown, knitr
 License: GPL
-MD5sum: ade8271630c0131e85d05d03b315bdce
+MD5sum: 80a17733f699bd9634c05e34175294fb
 NeedsCompilation: no
 
 Package: generics
@@ -100,7 +100,7 @@ Depends: R (>= 3.2)
 Imports: methods
 Suggests: covr, pkgload, testthat (>= 3.0.0), tibble, withr
 License: MIT + file LICENSE
-MD5sum: 5fd771985fa0af4ce354b3e7e5ab3729
+MD5sum: 5ea8649d938a8f3ca02354dba05c9ae5
 NeedsCompilation: no
 
 Package: jsonlite
@@ -130,6 +130,15 @@ Suggests: car, strucchange, sandwich, dynlm, stats4, survival, AER
 License: GPL-2 | GPL-3
 MD5sum: e0783a682489d633baddc149b856477e
 NeedsCompilation: yes
+
+Package: maxLik
+Version: 1.5-2.1
+Depends: R (>= 2.4.0), miscTools (>= 0.6-8), methods
+Imports: sandwich, generics
+Suggests: MASS, clue, dlm, plot3D, tibble, tinytest
+License: GPL (>= 2)
+MD5sum: 7b0af38c0927ff306050af7eaa3a6ca2
+NeedsCompilation: no
 
 Package: miscTools
 Version: 0.6-28
@@ -198,11 +207,12 @@ MD5sum: 8a9a31ae82d00c84cb63d3eaed5a3199
 NeedsCompilation: no
 
 Package: tseries
-Version: 0.10-53
+Version: 0.10-54
 Depends: R (>= 2.10.0)
-Imports: graphics, stats, utils, quadprog, zoo, quantmod (>= 0.4-9)
+Imports: graphics, stats, utils, quadprog, zoo, quantmod (>= 0.4-9),
+        jsonlite
 License: GPL-2
-MD5sum: 7ae0367e012292e03cb1e118a8e73384
+MD5sum: c65f04578a5f73eb7df25e0ca8f1305a
 NeedsCompilation: yes
 
 Package: urca
@@ -220,7 +230,7 @@ Imports: methods
 LinkingTo: zoo
 Suggests: timeSeries, timeDate, tseries, chron, tinytest
 License: GPL (>= 2)
-MD5sum: 0857c74591b0ba3f169f677d3259bc02
+MD5sum: 14962b9d3aeae5628ad6d0b4dd471820
 NeedsCompilation: yes
 
 Package: zoo
