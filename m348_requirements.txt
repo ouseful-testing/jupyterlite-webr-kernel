@@ -1,0 +1,8 @@
+jupyterlab-ou-brand-extension==0.2.3
+jupyterlab-cell-status-extension==0.2.2
+jupyterlab-empinken-extension==0.6.2
+jupyterlab-myst==2.4.0
+jupyterlab-spellchecker==0.8.4
+jupyterlab-unfold==0.3.0
+jupyter-archive==3.4.0
+jupyterlab-filesystem-access==0.6.0
