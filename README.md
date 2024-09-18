@@ -6,6 +6,8 @@ This repository contains a JupyterLite kernel that uses [webR](https://github.co
 This kernel buiklds to a custom path to the webR wasm package. See: https://github.com/ouseful-testing/jupyterlite-webr-kernel/issues/1 and diffs.
 
 
+The webR distribution is grabbed from: https://github.com/r-wasm/webr/releases/tag/v0.3.2
+
 ## Demonstration instance
 
 A demo instance of JupyterLite including the webR kernel and a sample Jupyter notebook containing R code can be found at <https://jupyter.r-wasm.org>.

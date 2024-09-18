@@ -27,7 +27,7 @@ Version: 1.0.13
 Imports: methods, utils
 Suggests: tinytest, inline, rbenchmark, pkgKitten (>= 0.1.2)
 License: GPL (>= 2)
-MD5sum: f265d1fb8506bee87cf17f3061d4db62
+MD5sum: f52f8df8c9b96a31b57bec5f57163707
 NeedsCompilation: yes
 
 Package: Rdpack
@@ -36,7 +36,7 @@ Depends: R (>= 2.15.0), methods
 Imports: tools, utils, rbibutils (>= 1.3)
 Suggests: grDevices, testthat, rstudioapi, rprojroot, gbRd
 License: GPL (>= 2)
-MD5sum: a25ef9ca04a54bc56d64281b3bed55ca
+MD5sum: e9ed95b296c947457ee72e324a346747
 NeedsCompilation: no
 
 Package: TTR
@@ -56,27 +56,6 @@ License: LGPL-2
 MD5sum: f1f9bb9861a032ba66168ac92b83917b
 NeedsCompilation: yes
 
-Package: collapse
-Version: 2.0.16
-Depends: R (>= 3.4.0)
-Imports: Rcpp (>= 1.0.1)
-LinkingTo: Rcpp
-Suggests: fastverse, data.table, magrittr, kit, xts, zoo, plm, fixest,
-        vars, RcppArmadillo, RcppEigen, tibble, dplyr, ggplot2, scales,
-        microbenchmark, testthat, covr, knitr, rmarkdown, withr
-License: GPL (>= 2) | file LICENSE
-MD5sum: b8ca947e410471015554a0ced067754f
-NeedsCompilation: yes
-
-Package: curl
-Version: 5.0.1
-Depends: R (>= 3.0.0)
-Suggests: spelling, testthat (>= 1.0.0), knitr, jsonlite, rmarkdown,
-        magrittr, httpuv (>= 1.4.4), webutils
-License: MIT + file LICENSE
-MD5sum: b0f6c44e6fdac858fe98d3a3fcab5130
-NeedsCompilation: yes
-
 Package: digest
 Version: 0.6.37
 Depends: R (>= 3.3.0)
@@ -91,7 +70,7 @@ Version: 1.14
 Depends: R (>= 3.2.3)
 Suggests: rstudioapi, shiny, testit, rmarkdown, knitr
 License: GPL
-MD5sum: 80a17733f699bd9634c05e34175294fb
+MD5sum: 99ccf04d7943b858664fa7afaa90649a
 NeedsCompilation: no
 
 Package: generics
@@ -100,7 +79,7 @@ Depends: R (>= 3.2)
 Imports: methods
 Suggests: covr, pkgload, testthat (>= 3.0.0), tibble, withr
 License: MIT + file LICENSE
-MD5sum: 5ea8649d938a8f3ca02354dba05c9ae5
+MD5sum: 269924d774f2af93d181f6f83afa05f5
 NeedsCompilation: no
 
 Package: jsonlite
@@ -170,22 +149,6 @@ License: GPL (>= 2)
 MD5sum: ed93b3c59bb31c90c7bececc51df99c7
 NeedsCompilation: no
 
-Package: quadprog
-Version: 1.5-8
-Depends: R (>= 3.1.0)
-License: GPL (>= 2)
-MD5sum: adb4832394dffb512f5a68be68c75cc6
-NeedsCompilation: yes
-
-Package: quantmod
-Version: 0.4.26
-Depends: R (>= 3.2.0), xts(>= 0.9-0), zoo, TTR(>= 0.2), methods
-Imports: curl, jsonlite(>= 1.1)
-Suggests: DBI,RMySQL,RSQLite,timeSeries,xml2,downloader
-License: GPL-3
-MD5sum: 86d4e385e17f9eee1eaadeef5a2cb073
-NeedsCompilation: no
-
 Package: rbibutils
 Version: 2.2.16
 Depends: R (>= 2.10)
@@ -206,15 +169,6 @@ License: GPL-2 | GPL-3
 MD5sum: 8a9a31ae82d00c84cb63d3eaed5a3199
 NeedsCompilation: no
 
-Package: tseries
-Version: 0.10-54
-Depends: R (>= 2.10.0)
-Imports: graphics, stats, utils, quadprog, zoo, quantmod (>= 0.4-9),
-        jsonlite
-License: GPL-2
-MD5sum: c65f04578a5f73eb7df25e0ca8f1305a
-NeedsCompilation: yes
-
 Package: urca
 Version: 1.3-4
 Depends: R (>= 2.0.0), methods
@@ -230,7 +184,7 @@ Imports: methods
 LinkingTo: zoo
 Suggests: timeSeries, timeDate, tseries, chron, tinytest
 License: GPL (>= 2)
-MD5sum: 14962b9d3aeae5628ad6d0b4dd471820
+MD5sum: 69cd0bf6127de9dd59eb34aee7f70b55
 NeedsCompilation: yes
 
 Package: zoo
