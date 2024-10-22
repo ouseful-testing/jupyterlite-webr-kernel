@@ -6,3 +6,6 @@ jupyterlab-empinken-extension==0.6.2
 jupyterlab-unfold==0.3.0
 #jupyter-archive==3.4.0 # no access to zip etc
 jupyterlab-filesystem-access==0.6.0
+
+# This extension allows us to open a notebook from the shared directory
+jupyterlab-open-url-parameter==0.3.0

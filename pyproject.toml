@@ -28,7 +28,6 @@ dynamic = ["version", "description", "authors", "urls", "keywords"]
 dev = [
   "jupyterlab>=4.1.0,<5",
   "ruff==0.1.5",
-  "jupyterlite-pyodide-kernel>=0.3.0a0"
 ]
 
 [tool.hatch.version]

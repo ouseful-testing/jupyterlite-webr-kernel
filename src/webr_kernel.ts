@@ -41,9 +41,11 @@ export class WebRKernel extends BaseKernel {
     await this.webR.init();
     this.shelter = await new this.webR.Shelter();
     // Enable dev.control to allow active plots to be copied
+    // On Windows, the pdf(...) device setting raises an error
+    // but png(...) seems to work okay.
     await this.webR.evalRVoid(`
       options(device = function(...){
-        pdf(...)
+        png(...)
         dev.control("enable")
       }, webr.plot.new = FALSE)
     `);
