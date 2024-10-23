@@ -9,6 +9,30 @@ const webRVersion = "0.3.0";
 const baseRVersion = "4.3.3";
 const protocolVersion = "5.3";
 
+function getFormattedUrl(url: string = window.location.href): string {
+  try {
+    const urlObj = new URL(url);
+    // Get protocol (includes the trailing ':')
+    const protocol = urlObj.protocol;
+    // Get domain (hostname includes subdomains)
+    const domain = urlObj.hostname;
+    
+    // Get path and remove any file names (like index.html)
+    let path = urlObj.pathname;
+    path = path.replace(/\/[^\/]+\.[^\/]+$/, '/');
+    
+    // Ensure path ends with trailing slash
+    if (!path.endsWith('/')) {
+      path += '/';
+    }
+    
+    return `${protocol}//${domain}${path}`;
+  } catch (e) {
+    // Return empty string or throw error based on your needs
+    return '';
+  }
+}
+
 export class WebRKernel extends BaseKernel {
   webR: WebR;
   shelter!: Shelter;
@@ -38,6 +62,7 @@ export class WebRKernel extends BaseKernel {
     this.#bitmapCanvas = document.createElement('canvas');
   }
 
+  
   async setupEnvironment(): Promise<void> {
     await this.webR.init();
     this.shelter = await new this.webR.Shelter();
@@ -50,6 +75,11 @@ export class WebRKernel extends BaseKernel {
         dev.control("enable")
       }, webr.plot.new = FALSE)
     `);
+    
+    // Try to set the path
+    const currentUrl = getFormattedUrl();
+    await this.webR.evalRVoid(`JUPYTERLITE_PATH <- "${currentUrl}"`);
+
     // Create a signal when there is a new plot to be shown in JupyterLite
     await this.webR.evalRVoid(`
       setHook("grid.newpage", function() {
