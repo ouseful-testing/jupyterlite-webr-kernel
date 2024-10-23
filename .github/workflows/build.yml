@@ -52,13 +52,13 @@ jobs:
       - name: Create the a JupyterLite.zip file
         run: |
           cd _output
-          zip -r ../jupyterlite-web-distribution.zip . --exclude "*.git*"
+          zip -r ../jupyterlite-web-dist.zip . --exclude "*.git*"
 
       - name: Upload JupyterLite site artifact
         uses: actions/upload-artifact@v3
         with:
           name: jupyterlite-web-distribution
-          path: jupyterlite-web-distribution.zip
+          path: jupyterlite-web-dist.zip
 
   deploy_gh_pages:
     # This action reuses the artifact uploaded in the previous step
