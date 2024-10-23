@@ -12,6 +12,6 @@ dependencies:
   - nodejs=20
   # deps
   - jupyterlab >=4.0,<5
-  - notebook~=7.1.3
+  #- notebook~=7.1.3
   - jupyterlite-core >=0.3.0rc1
 
