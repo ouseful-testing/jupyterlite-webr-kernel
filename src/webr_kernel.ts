@@ -25,8 +25,9 @@ export class WebRKernel extends BaseKernel {
       prompt: (prompt: string) => this.inputRequest({ prompt, password: false }),},{
       //baseUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/webr-dist/",
       //repoUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/repo/",
-      baseUrl: "./webr-dist/",
-      repoUrl: "./repo/",
+      // If we are polling from ./lab we need to go up to distro root
+      baseUrl: "../webr-dist/",
+      repoUrl: "../repo/",
       REnv: {
         R_HOME: '/usr/lib/R',
         FONTCONFIG_PATH: '/etc/fonts',
