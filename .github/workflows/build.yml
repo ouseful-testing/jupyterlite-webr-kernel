@@ -46,11 +46,19 @@ jobs:
       - name: Patch config-utils.js
         run: cp ./patches/config-utils.js ./_output/config-utils.js
 
+      # For Moodle, the html5.zip needs to see the index.html at the root
+      # So create a zip file with no wrapper directory
+      # that will unarchive the files at the current path.
+      - name: Create the a JupyterLite.zip file
+        run: |
+          cd _output
+          zip -r ../jupyterlite-web-distribution.zip . --exclude "*.git*"
+
       - name: Upload JupyterLite site artifact
         uses: actions/upload-artifact@v3
         with:
           name: jupyterlite-web-distribution
-          path: _output
+          path: jupyterlite-web-distribution.zip
 
   deploy_gh_pages:
     # This action reuses the artifact uploaded in the previous step
