@@ -21,6 +21,9 @@ function getFormattedUrl(url: string = window.location.href): string {
     let path = urlObj.pathname;
     path = path.replace(/\/[^\/]+\.[^\/]+$/, '/');
     
+    // Strip the /lab path element
+    path = path.replace(/\/lab\/?$/, '/');
+    
     // Ensure path ends with trailing slash
     if (!path.endsWith('/')) {
       path += '/';
@@ -75,7 +78,7 @@ export class WebRKernel extends BaseKernel {
         dev.control("enable")
       }, webr.plot.new = FALSE)
     `);
-    
+
     // Try to set the path
     const currentUrl = getFormattedUrl();
     await this.webR.evalRVoid(`JUPYTERLITE_PATH <- "${currentUrl}"`);
