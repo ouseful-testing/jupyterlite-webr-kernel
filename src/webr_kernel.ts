@@ -16,6 +16,7 @@ function getFormattedUrl(url: string = window.location.href): string {
     const protocol = urlObj.protocol;
     // Get domain (hostname includes subdomains)
     const domain = urlObj.hostname;
+    const port = urlObj.port ? `:${urlObj.port}` : '';
     
     // Get path and remove any file names (like index.html)
     let path = urlObj.pathname;
@@ -29,7 +30,7 @@ function getFormattedUrl(url: string = window.location.href): string {
       path += '/';
     }
     
-    return `${protocol}//${domain}${path}`;
+    return `${protocol}//${domain}${port}${path}`;
   } catch (e) {
     // Return empty string or throw error based on your needs
     return '';
