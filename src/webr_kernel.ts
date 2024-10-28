@@ -102,6 +102,9 @@ export class WebRKernel extends BaseKernel {
     await this.webR.evalRVoid(`
       webr::shim_install()
     `);
+
+    // Load in utils, e.g. modified read.csv
+    await this.webR.evalRVoid(`library(JupyterLiteUtils)`);
   }
 
   inputReply(content: KernelMessage.IInputReplyMsg['content']): void {
