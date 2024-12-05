@@ -47,19 +47,29 @@ jobs:
         run: cp ./patches/config-utils.js ./_output/config-utils.js
 
       # For Moodle, the html5.zip needs to see the index.html at the root
-      # So create a zip file with no wrapper directory
+      - name: Upload JupyterLite Moodle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: m348-jupyterlite-html5zip-distribution
+          path: |
+            _output/
+            !.git
+            !.git/**
+            
+      # If we create a zip file with no wrapper directory
       # that will unarchive the files at the current path.
+      # This will actually be then zipped in the artefact zip.
       - name: Create the a JupyterLite.zip file
         run: |
           cd _output
           zip -r ../jupyterlite-web-dist.zip . --exclude "*.git*"
 
-      - name: Upload JupyterLite site artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: jupyterlite-web-distribution
-          path: jupyterlite-web-dist.zip
-
+      #- name: Upload JupyterLite site artifact
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: jupyterlite-web-distribution
+      #    path: jupyterlite-web-dist.zip
+            
       ## This can generate a large file that would need to be tracked with git LFS
       # - name: Commit and push zip file to the repository
       #   run: |
