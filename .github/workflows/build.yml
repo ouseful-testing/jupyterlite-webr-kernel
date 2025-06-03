@@ -31,7 +31,7 @@ jobs:
           python -m pip install -r m348_requirements.txt
           jupyter lite build --contents content
           cp -r ./packages_wasmbuilt/ _output/repo/
-          cp -r ./webr-0.3.2/ _output/webr-dist/
+          cp -r ./webr-0.4.3/ _output/webr-dist/
           cp -r ./images/ _output/files/imagestore/
 
       - name: Upload _output/ artifact for GitHub Pages
