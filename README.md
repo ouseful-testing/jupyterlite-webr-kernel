@@ -14,7 +14,64 @@ A demo instance of JupyterLite including the webR kernel and a sample Jupyter no
 
 ## Install
 
-This package is not yet available on PyPI. You can install it from GitHub:
+This package is available via PyPI:
+
+```bash
+pip install jupyterlite-webr
+```
+
+Once installed, build your JupyterLite site:
+
+```bash
+jupyter lite build
+```
+
+The `_output` directory will contain the static JupyterLite site. You can serve it locally with the command,
+
+```bash
+jupyter lite serve
+```
+
+## Configuration
+
+The file `jypyter-lite.json` may be modified to set the webR base URL `baseUrl` and default package repository `repoUrl`. For example:
+
+```json
+{
+  "jupyter-lite-schema-version": 0,
+  "jupyter-config-data": {
+    "litePluginSettings": {
+      "@r-wasm/webr-kernel-extension:kernel": {
+        "baseUrl": "https://webr.r-wasm.org/latest/",
+        "repoUrl": "https://repo.r-wasm.org/"
+      }
+    }
+  }
+}
+```
+
+See the Jupyterlite documentation on [configuration files](https://jupyterlite.readthedocs.io/en/latest/howto/configure/config_files.html#jupyter-lite-json) for more information.
+
+## Limitations
+
+### Headers
+
+To use the webR kernel with JupyterLite, the page must be served with certain security-related HTTP headers so that it is cross-origin isolated. By setting these headers webR's `SharedArrayBuffer` based communication channel can be used:
+
+```http
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+```
+
+### Interruption
+
+While webR supports interrupting long running computations, interrupting cell execution has not yet been implemented in JupyterLite. An infinite looping cell can only be recovered by restarting the kernel.
+
+## Contributing
+
+### Development installation
+
+First, install a development version of the package from GitHub:
 
 ```bash
 pip install git+https://github.com/r-wasm/jupyterlite-webr-kernel.git
@@ -28,36 +85,7 @@ cd jupyterlite-webr-kernel
 pip install .
 ```
 
-Then build your JupyterLite site:
-
-```bash
-jupyter lite build
-```
-
-## Limitations
-
-### Headers
-
-To use the webR kernel with JupyterLite, the page must be served with certain security-related HTTP headers so that it is cross-origin isolated. By setting these headers webR's `SharedArrayBuffer` based communication channel can be used:
-
-```http
-Cross-Origin-Opener-Policy: same-origin
-Cross-Origin-Embedder-Policy: require-corp
-```
-
-### Virtual file system storage
-
-Due to limitations in the way the webR worker thread is implemented, the persistent JupyterLite file storage and the Emscripten VFS used by webR are not accessible to one another. The simplest way to import data into a webR notebook at the time of writing is by using R functions such as `read.csv()` with a publicly accessible URL.
-
-### Interruption
-
-While webR supports interrupting long running computations, interrupting cell execution has not yet been implemented in JupyterLite. An infinite looping cell can only be recovered by restarting the kernel.
-
-## Contributing
-
-### Development install
-
-Note: You will need NodeJS and Python 3.8+ to build the extension package. There is an environment.yml file for conda/mamba/micromamba users to create a conda environment with the required dependencies.
+Note: You will need NodeJS and Python 3.9+ to build the extension package. There is an environment.yml file for conda/mamba/micromamba users to create a conda environment with the required dependencies.
 
 The `jlpm` command is JupyterLab's pinned version of [yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use `yarn` or `npm` in lieu of `jlpm` below.
 

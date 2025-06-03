@@ -2,7 +2,7 @@ import { BaseKernel } from '@jupyterlite/kernel';
 import { KernelMessage } from '@jupyterlab/services';
 import { IKernel } from '@jupyterlite/kernel';
 
-import { Console, WebR, Shelter} from 'webr';
+import { Console, WebR, Shelter, WebROptions } from 'webr';
 import { RList, RCharacter, RLogical } from 'webr';
 
 const webRVersion = "0.3.0";
@@ -46,22 +46,13 @@ export class WebRKernel extends BaseKernel {
   #bitmapCanvas: HTMLCanvasElement;
   #lastPlot: string | null = null;
 
-  constructor(options: IKernel.IOptions) {
+  constructor(options: IKernel.IOptions, webROptions: WebROptions) {
     super(options);
     this.#webRConsole = new Console({
       stdout: (line: string) => console.log(line),
       stderr: (line: string) => console.error(line),
-      prompt: (prompt: string) => this.inputRequest({ prompt, password: false }),},{
-      //baseUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/webr-dist/",
-      //repoUrl: "https://ouseful-demos.github.io/jupyterlite-m348-demo/repo/",
-      // If we are polling from ./lab we need to go up to distro root
-      baseUrl: "../webr-dist/",
-      repoUrl: "../repo/",
-      REnv: {
-        R_HOME: '/usr/lib/R',
-        FONTCONFIG_PATH: '/etc/fonts',
-        R_ENABLE_JIT: '0',}
-    });
+      prompt: (prompt: string) => this.inputRequest({ prompt, password: false }),
+    }, webROptions);
     this.webR = this.#webRConsole.webR;
     this.init = this.setupEnvironment();
     this.#bitmapCanvas = document.createElement('canvas');
@@ -76,7 +67,7 @@ export class WebRKernel extends BaseKernel {
     // but png(...) seems to work okay.
     await this.webR.evalRVoid(`
       options(device = function(...){
-        png(...)
+        webr::canvas(...)
         dev.control("enable")
       }, webr.plot.new = FALSE)
     `);
@@ -103,8 +94,11 @@ export class WebRKernel extends BaseKernel {
       webr::shim_install()
     `);
 
-    // Load in utils, e.g. modified read.csv
-    await this.webR.evalRVoid(`library(JupyterLiteUtils)`);
+    // Mount Jupyterlite storage and set the CWD
+    await this.webR.evalRVoid(`
+      webr::mount("/drive", type="DRIVEFS")
+      setwd("/drive")
+    `);
   }
 
   inputReply(content: KernelMessage.IInputReplyMsg['content']): void {
