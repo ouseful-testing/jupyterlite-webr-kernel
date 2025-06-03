@@ -5,8 +5,8 @@ import { IKernel } from '@jupyterlite/kernel';
 import { Console, WebR, Shelter, WebROptions } from 'webr';
 import { RList, RCharacter, RLogical } from 'webr';
 
-const webRVersion = "0.3.0";
-const baseRVersion = "4.3.3";
+const webRVersion = "0.4.3";
+const baseRVersion = "4.4.2";
 const protocolVersion = "5.3";
 
 function getFormattedUrl(url: string = window.location.href): string {
