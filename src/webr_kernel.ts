@@ -5,8 +5,6 @@ import { IKernel } from '@jupyterlite/kernel';
 import { Console, WebR, Shelter, WebROptions } from 'webr';
 import { RList, RCharacter, RLogical } from 'webr';
 
-const webRVersion = "0.4.3";
-const baseRVersion = "4.4.2";
 const protocolVersion = "5.3";
 
 function getFormattedUrl(url: string = window.location.href): string {
@@ -109,6 +107,8 @@ export class WebRKernel extends BaseKernel {
 
   async kernelInfoRequest(): Promise<KernelMessage.IInfoReplyMsg['content']> {
     await this.init;
+    const webRVersion = this.webR.version;
+    const baseRVersion = await this.webR.evalRString("as.character(getRversion())");
     const content: KernelMessage.IInfoReply = {
       status: 'ok',
       protocol_version: protocolVersion,
