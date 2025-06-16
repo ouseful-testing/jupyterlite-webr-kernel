@@ -8,7 +8,7 @@ import type { WebROptions } from 'webr';
 
 const PLUGIN_ID = '@r-wasm/webr-kernel-extension:kernel';
 
-const server_kernel: JupyterLiteServerPlugin<void> = {
+const server_kernel: JupyterFrontEndPlugin<void> = {
   id: PLUGIN_ID,
   autoStart: true,
   requires: [IKernelSpecs],
