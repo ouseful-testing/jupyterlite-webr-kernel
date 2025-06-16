@@ -60,5 +60,5 @@ const server_kernel: JupyterFrontEndPlugin<void> = {
   },
 };
 
-const plugins: JupyterLiteServerPlugin<any>[] = [server_kernel];
+const plugins: JupyterFrontEndPlugin<any>[] = [server_kernel];
 export default plugins;
