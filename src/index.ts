@@ -1,4 +1,5 @@
-import { JupyterLiteServer, JupyterLiteServerPlugin } from '@jupyterlite/server';
+import { JupyterLiteServer } from '@jupyterlite/server';
+import { JupyterFrontEndPlugin } from '@jupyterlab/application';
 import { IKernel, IKernelSpecs } from '@jupyterlite/kernel';
 import { PageConfig, URLExt } from '@jupyterlab/coreutils';
 import { WebRKernel } from './webr_kernel';
