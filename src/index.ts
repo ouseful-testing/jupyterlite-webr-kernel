@@ -1,5 +1,5 @@
 import { JupyterLiteServer } from '@jupyterlite/server';
-import { JupyterFrontEndPlugin } from '@jupyterlab/application';
+import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application';
 import { IKernel, IKernelSpecs } from '@jupyterlite/kernel';
 import { PageConfig, URLExt } from '@jupyterlab/coreutils';
 import { WebRKernel } from './webr_kernel';
@@ -13,7 +13,7 @@ const server_kernel: JupyterFrontEndPlugin<void> = {
   id: PLUGIN_ID,
   autoStart: true,
   requires: [IKernelSpecs],
-  activate: (app: JupyterLiteServer, kernelspecs: IKernelSpecs) => {
+  activate: (app: JupyterFrontEnd, kernelspecs: IKernelSpecs) => {
     const config = JSON.parse(
       PageConfig.getOption('litePluginSettings') || '{}'
     )[PLUGIN_ID] || {};
