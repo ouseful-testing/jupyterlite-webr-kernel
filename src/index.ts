@@ -1,4 +1,3 @@
-import { JupyterLiteServer } from '@jupyterlite/server';
 import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application';
 import { IKernel, IKernelSpecs } from '@jupyterlite/kernel';
 import { PageConfig, URLExt } from '@jupyterlab/coreutils';
