@@ -1,6 +1,6 @@
 {
   "name": "@r-wasm/jupyterlite-webr-kernel",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "An R kernel for JupyterLite, powered by webR",
   "keywords": [
     "jupyter",
@@ -60,8 +60,8 @@
     "watch:labextension": "jupyter labextension watch ."
   },
   "dependencies": {
-    "@jupyterlite/kernel": "^0.5.0",
-    "@jupyterlite/server": "^0.5.0",
+    "@jupyterlite/kernel": "^0.6.0",
+    "@jupyterlite/server": "^0.6.0",
     "@jupyterlab/application": "^4.4.0",
     "hash.js": "^1.1.7",
     "webr": "^0.4.3"
