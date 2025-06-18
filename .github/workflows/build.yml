@@ -25,6 +25,8 @@ jobs:
 
       # By default, the `jupyter lite build` site will be created in _output
       # Set a custom path using: --output-dir
+      # We can also bundle the WebR package, and WASM built R packages,
+      # and then point to them via the jupyter-lite.json config file
       - name: Build jupyterlite
         run: |
           python -m pip install -e ".[dev]"
