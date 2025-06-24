@@ -1,28 +1,33 @@
 name: Build and deploy
-
 on:
   workflow_dispatch:
+    inputs:
+      webr_version:
+        description: 'WebR Version'
+        required: true
+        default: 'webr-0.4.4'
+        type: choice
+        options:
+          - webr-0.3.2
+          - webr-0.4.4
+          - webr-0.5.2
   push:
     branches: [main]
   pull_request:
     branches: [main]
   release:
     types: [published]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Upgrade pip
         run: python -m pip install --upgrade pip
-
       # By default, the `jupyter lite build` site will be created in _output
       # Set a custom path using: --output-dir
       # We can also bundle the WebR package, and WASM built R packages,
@@ -33,26 +38,26 @@ jobs:
           python -m pip install -r m348_requirements.txt
           jupyter lite build --contents content
           cp -r ./packages_wasmbuilt/ _output/repo/
-          cp -r ./webr-0.4.3/ _output/webr-dist/
+          # Use the selected WebR version or default to webr-0.4.4 for non-manual triggers
+          WEBR_VERSION="${{ github.event.inputs.webr_version || 'webr-0.4.4' }}"
+          echo "Using WebR version: $WEBR_VERSION"
+          echo "WEBR_VERSION=$WEBR_VERSION" >> $GITHUB_ENV
+          cp -r ./$WEBR_VERSION/ _output/webr-dist/
           cp -r ./images/ _output/files/imagestore/
-
       - name: Upload _output/ artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_output/"
-
       - name: Patch JupyterLite for Moodle use
         run: |
           sed -i 's|<link rel="manifest" href="\([^"]*\)" />|<link rel="manifest" href="\1" crossorigin="use-credentials" />|' ./_output/lab/index.html
-
       - name: Patch config-utils.js
         run: cp ./patches/config-utils.js ./_output/config-utils.js
-
       # For Moodle, the html5.zip needs to see the index.html at the root
       - name: Upload JupyterLite Moodle artifact
         uses: actions/upload-artifact@v4
         with:
-          name: m348-jupyterlite-html5zip-distribution
+          name: m348-jupyterlite-html5zip-distribution-${{ env.WEBR_VERSION }}
           path: |
             _output/
             !.git
@@ -64,8 +69,7 @@ jobs:
       - name: Create the a JupyterLite.zip file
         run: |
           cd _output
-          zip -r ../jupyterlite-web-dist.zip . --exclude "*.git*"
-
+          zip -r ../jupyterlite-web-dist-${{ env.WEBR_VERSION }}.zip . --exclude "*.git*"
       #- name: Upload JupyterLite site artifact
       #  uses: actions/upload-artifact@v3
       #  with:
@@ -82,20 +86,16 @@ jobs:
       #     git push origin HEAD:your-branch-name  # Change this to your target branch
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
-
   deploy_gh_pages:
     # This action reuses the artifact uploaded in the previous step
     #if: github.ref == 'refs/heads/main'
     needs: build
-
     permissions:
       pages: write
       id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
