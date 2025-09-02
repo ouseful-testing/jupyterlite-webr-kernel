@@ -174,9 +174,18 @@ export class WebRKernel extends BaseKernel {
           case 'warning': {
             const cnd = out.data as RList;
             const message = (await cnd.get('message')) as RCharacter;
+            
+            // TH HACK
+            const msg = await message.toString();
+            // Filter: skip specific warning
+            if (msg.includes('/drive') && msg.includes('Operation not permitted')) {
+              // do nothing, i.e. suppress this warning
+                break;
+            }
+
             this.stream({
               name: 'stderr',
-              text: 'Warning message:\n' + (await message.toString()) + '\n',
+              text: 'Warning message:\n' + msg + '\n',
             });
             break;
           }
