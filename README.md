@@ -3,7 +3,7 @@
 This repository contains a JupyterLite kernel that uses [webR](https://github.com/r-wasm/webR) to execute R code. When the kernel is started, the webR WebAssembly binaries are downloaded from CDN and loaded into the page.
 
 
-This kernel buiklds to a custom path to the webR wasm package. See: https://github.com/ouseful-testing/jupyterlite-webr-kernel/issues/1 and diffs.
+This kernel builds to a custom path to the webR wasm package. See: https://github.com/ouseful-testing/jupyterlite-webr-kernel/issues/1 and diffs.
 
 
 The webR distribution is grabbed from: https://github.com/r-wasm/webr/releases/tag/v0.3.2
