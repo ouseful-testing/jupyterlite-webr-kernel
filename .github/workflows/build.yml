@@ -8,9 +8,10 @@ on:
         default: 'webr-0.4.4'
         type: choice
         options:
-          - webr-0.3.2
+          - webr-0.3.3
           - webr-0.4.4
-          - webr-0.5.2
+          - webr-0.5.4
+          - webr-0.5.5
   push:
     branches: [main]
   pull_request:
