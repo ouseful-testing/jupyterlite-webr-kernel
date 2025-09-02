@@ -38,12 +38,15 @@ jobs:
           python -m pip install -e ".[dev]"
           python -m pip install -r m348_requirements.txt
           jupyter lite build --contents content
-          cp -r ./packages_wasmbuilt/ _output/repo/
+          #cp -r ./packages_wasmbuilt/ _output/repo/
           # Use the selected WebR version or default to webr-0.4.4 for non-manual triggers
           WEBR_VERSION="${{ github.event.inputs.webr_version || 'webr-0.4.4' }}"
+          WEBR_VER=$(echo "${{ github.event.inputs.webr_version }}" | cut -d'-' -f2)
+          mkdir -p _output/repo/bin/emscripten/contrib
           echo "Using WebR version: $WEBR_VERSION"
           echo "WEBR_VERSION=$WEBR_VERSION" >> $GITHUB_ENV
           cp -r ./$WEBR_VERSION/ _output/webr-dist/
+          cp -r ./packages_wasmbuilt/bin/emscripten/contrib/$WEBR_VER _output/repo/bin/emscripten/contrib/
           cp -r ./images/ _output/files/imagestore/
       - name: Upload _output/ artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
