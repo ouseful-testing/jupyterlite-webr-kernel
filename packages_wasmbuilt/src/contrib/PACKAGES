@@ -13,10 +13,10 @@ MD5sum: 993a78f897263b0a694bfca71475d67d
 NeedsCompilation: no
 
 Package: M348
-Version: 1.3.6.4
+Version: 1.3.8
 Depends: R (>= 2.10)
 License: GPL-3
-MD5sum: 1a9aace9edb71db25426aa3a06e7bcb0
+MD5sum: 627b76025a0e193c2d56f3a587f54e0d
 NeedsCompilation: no
 
 Package: MASS
@@ -30,11 +30,11 @@ MD5sum: 11b9633f53569952b523b4fb6fa16e0b
 NeedsCompilation: yes
 
 Package: Rcpp
-Version: 1.0.14
+Version: 1.1.0
 Imports: methods, utils
 Suggests: tinytest, inline, rbenchmark, pkgKitten (>= 0.1.2)
 License: GPL (>= 2)
-MD5sum: d9a064fad7fab2641ee8f0d72e772582
+MD5sum: 4b308b0be7635b704ea3e74446db8493
 NeedsCompilation: yes
 
 Package: Rdpack
@@ -64,7 +64,7 @@ MD5sum: f1f9bb9861a032ba66168ac92b83917b
 NeedsCompilation: yes
 
 Package: collapse
-Version: 2.1.2
+Version: 2.1.3
 Depends: R (>= 4.1.0)
 Imports: Rcpp (>= 1.0.1)
 LinkingTo: Rcpp
@@ -72,7 +72,7 @@ Suggests: fastverse, data.table, magrittr, kit, xts, zoo, plm, fixest,
         vars, RcppArmadillo, RcppEigen, tibble, dplyr, ggplot2, scales,
         microbenchmark, testthat, covr, knitr, rmarkdown, withr, bit64
 License: GPL (>= 2) | file LICENSE
-MD5sum: c833fe9e0db4553a32c8b00def47b432
+MD5sum: d5e304c294630e13d2af7a54f5da2a3f
 NeedsCompilation: yes
 
 Package: digest
@@ -89,7 +89,7 @@ Version: 1.14
 Depends: R (>= 3.2.3)
 Suggests: rstudioapi, shiny, testit, rmarkdown, knitr
 License: GPL
-MD5sum: 2643dd7d170a66029ea6a18f34cd0b81
+MD5sum: 60b2f697b41bc1376eefd6b9f1a941f6
 NeedsCompilation: no
 
 Package: generics
@@ -98,7 +98,7 @@ Depends: R (>= 3.6)
 Imports: methods
 Suggests: covr, pkgload, testthat (>= 3.0.0), tibble, withr
 License: MIT + file LICENSE
-MD5sum: d3cc190659e08346b27d86116f8eed24
+MD5sum: 0171ef23cb063db32016ba3f6fc47273
 NeedsCompilation: no
 
 Package: jsonlite
@@ -203,7 +203,7 @@ Imports: methods
 LinkingTo: zoo
 Suggests: timeSeries, timeDate, tseries, chron, tinytest
 License: GPL (>= 2)
-MD5sum: 119c5661f348468777054d4fb2894ebf
+MD5sum: ba85471762edff2bfa781cc676e3e179
 NeedsCompilation: yes
 
 Package: zoo
