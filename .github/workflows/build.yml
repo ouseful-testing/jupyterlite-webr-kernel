@@ -5,7 +5,7 @@ on:
       webr_version:
         description: 'WebR Version'
         required: true
-        default: 'webr-0.4.4'
+        default: 'webr-0.5.4'
         type: choice
         options:
           - webr-0.3.3
